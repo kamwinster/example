@@ -3,20 +3,45 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        Dog Tuzik = new Dog(2, "Тузик");
-        Tuzik.voice();
+        Car model1 = new Car("Kio", 1000, 9);
+        model1.CheckP();
+        Car model2 = new Car("BMW", 1200, 13);
+        model2.CheckP();
+        Lorry model3 = new Lorry("mAz", 2000, 15, 500);
+        model3.CheckP();
     }
 }
-class Dog{
-    public Dog(int a, String n){
-        age=a;
-        name=n;
+
+class Car {
+    String marka; //торговая марка
+    int weight; //вес
+    int P; //мощность
+
+    public Car(String marka, int weight, int P) {
+        this.marka = marka;
+        this.weight = weight;
+        this.P = P;
     }
-    int age;
-    String name;
-    public void voice(){
-        for(int i=1; i<=age; i++){
-            System.out.println("гав-гав");
+
+    public void CheckP() {
+        if(P > 10) {
+            System.out.println("Ваша машина " + marka+ " с весом " +weight+ " является мощной");
+        } else {
+            System.out.println("Ваша машина " + marka+ " с весом " +weight+ " является слабой");
+        }
+    }
+}
+class Lorry extends Car{
+    int gruz; //грузоподъемность кузова
+    public Lorry(String marka, int weight, int P, int gruz) {
+        super(marka, weight, P);
+        this.gruz = gruz;
+    }
+    public void CheckP() {
+        if(P > 10) {
+            System.out.println("Ваша машина " + marka+ " с весом " +weight+ " и грузоподъемностью кузова " +gruz+ " является мощной");
+        } else {
+            System.out.println("Ваша машина " + marka+ " с весом " +weight+ " и грузоподъемностью кузова " +gruz+ " является слабой");
         }
     }
 }
